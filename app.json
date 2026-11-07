@@ -1,0 +1,130 @@
+{
+  "expo": {
+    "name": "Rawdog",
+    "slug": "rawdog",
+    "version": "10",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0E1114",
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "UTExportedTypeDeclarations": [
+          {
+            "UTTypeIdentifier": "com.rwdg.routine",
+            "UTTypeDescription": "Workout routine",
+            "UTTypeConformsTo": [
+              "public.data"
+            ],
+            "UTTypeTagSpecification": {
+              "public.filename-extension": [
+                "rwdg"
+              ],
+              "public.mime-type": "application/x-rwdg"
+            }
+          }
+        ],
+        "CFBundleDocumentTypes": [
+          {
+            "CFBundleTypeName": "Workout routine",
+            "LSHandlerRank": "Owner",
+            "LSItemContentTypes": [
+              "com.rwdg.routine"
+            ]
+          }
+        ]
+      }
+    },
+    "android": {
+      "package": "com.yourname.rawdog",
+      "adaptiveIcon": {
+        "backgroundColor": "#335CFF",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "category": [
+            "DEFAULT",
+            "BROWSABLE"
+          ],
+          "data": [
+            {
+              "scheme": "content",
+              "mimeType": "*/*",
+              "pathPattern": ".*\\.rwdg"
+            },
+            {
+              "scheme": "content",
+              "mimeType": "*/*",
+              "pathPattern": ".*\\..*\\.rwdg"
+            },
+            {
+              "scheme": "file",
+              "mimeType": "*/*",
+              "pathPattern": ".*\\.rwdg"
+            },
+            {
+              "scheme": "file",
+              "mimeType": "*/*",
+              "pathPattern": ".*\\..*\\.rwdg"
+            },
+            {
+              "scheme": "content",
+              "mimeType": "application/x-rwdg"
+            },
+            {
+              "scheme": "content",
+              "mimeType": "application/octet-stream",
+              "pathPattern": ".*\\.rwdg"
+            }
+          ]
+        }
+      ],
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 24
+          }
+        }
+      ],
+      "expo-audio",
+      "expo-sharing",
+      [
+        "expo-notifications",
+        {
+          "sounds": [
+            "./assets/timer.mp3"
+          ]
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash.png",
+          "backgroundColor": "#0E1114",
+          "resizeMode": "contain",
+          "imageWidth": 220
+        }
+      ],
+      "expo-asset"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "138d1cb3-792e-4e49-9b72-a920810f9089"
+      }
+    }
+  }
+}
