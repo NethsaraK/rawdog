@@ -1,0 +1,21 @@
+# Save as .github/workflows/update.yml in your repo.
+# Every push to main publishes an over-the-air update to the "production" channel.
+name: Publish OTA update
+on:
+  push:
+    branches: [main]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+      - run: npm ci
+      - run: eas update --branch production --message "${{ github.event.head_commit.message }}" --non-interactive
